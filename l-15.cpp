@@ -1,9 +1,11 @@
 // COMSC-210 | Lab 15 | Annie Morales
 // IDE used: Visual Studio Code
 
-#include <iostream>
+#include <fstream> // For file operations
+#include <iostream> // For input & output
 #include <iomanip>
-#include <string>
+#include <string> // For string use
+#include <vector> // For vector use
 using namespace std;
 
 const int W15 = 15;
@@ -12,7 +14,7 @@ class Movie
 {
 private:
 	string screenwriter;
-    int yearReleased;
+    string yearReleased;
     string title;
 
 public:
@@ -20,7 +22,7 @@ public:
 string getScreenwriter()        { return screenwriter; }
 void setSW(string sw)           { screenwriter = sw; }
 
-int getYearReleased()           { return yearReleased; }
+string getYearReleased()           { return yearReleased; }
 void setYrReleased(int YrR)     { yearReleased = YrR; }
 
 string getTitle()               { return title; }
@@ -39,6 +41,23 @@ void print(Movie);
 
 int main()
 {
-	// code here
-	return 0;
+    vector<string> records; // Vector to store movie info
+    
+    // Reads movie info from a file
+    ifstream fin;
+    fin.open("movieinfo.txt");
+
+    // Checks if file opened successfully
+    if (!fin.good()) throw "I/O error";
+    
+    // Reads movie info from the file into the vector
+    string tempMovie;
+    while (fin >> tempMovie)
+    {
+        records.push_back(tempMovie);
+    }
+    
+    fin.close(); // Closes the file
+
+    return 0;
 }
