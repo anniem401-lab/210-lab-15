@@ -14,7 +14,7 @@ class Movie
 {
 private:
 	string screenwriter;
-    string yearReleased;
+    int yearReleased;
     string title;
 
 public:
@@ -22,7 +22,7 @@ public:
 string getScreenwriter()        { return screenwriter; }
 void setSW(string sw)           { screenwriter = sw; }
 
-string getYearReleased()           { return yearReleased; }
+int getYearReleased()           { return yearReleased; }
 void setYrReleased(int YrR)     { yearReleased = YrR; }
 
 string getTitle()               { return title; }
@@ -59,5 +59,10 @@ int main()
     
     fin.close(); // Closes the file
 
+    //Displays the movie info
+    cout << endl;
+    Movie m; // Movie object
+
+    cout << endl;
     return 0;
 }
