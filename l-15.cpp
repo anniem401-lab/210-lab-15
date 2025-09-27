@@ -31,9 +31,9 @@ void setTitle(string t)         { title = t;}
 // Print method
 void print()
 {
-    cout << setw(W15) << "Screenwriter: " << screenwriter << endl;
+    cout << setw(W15) << "Movie: " << screenwriter << endl;
     cout << setw(W15) << "Year released: " << yearReleased << endl;
-    cout << setw(W15) << "Title: " << title << endl;
+    cout << setw(W15) << "Screenwriter: " << title << endl;
 }
 };
 
@@ -91,7 +91,7 @@ int main()
         cout << endl;
     }
 
-    fin.close();
+    fin.close(); // Closes file
 
     cout << endl;
     return 0;
