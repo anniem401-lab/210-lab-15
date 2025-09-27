@@ -61,7 +61,37 @@ int main()
 
     //Displays the movie info
     cout << endl;
-    Movie m; // Movie object
+
+    // Reopen the file to read movie info line by line
+    fin.open("movieinfo.txt");
+    if (!fin.good()) throw "I/O error";
+
+    while (!fin.eof())
+    {
+        Movie m; // Movie object
+        string screenwriter, title;
+        int yearReleased;
+
+        // Read screenwriter
+        if (!getline(fin, screenwriter)) break;
+        m.setSW(screenwriter);
+
+        // Read year released
+        string yearStr;
+        if (!getline(fin, yearStr)) break;
+        yearReleased = stoi(yearStr);
+        m.setYrReleased(yearReleased);
+
+        // Read title
+        if (!getline(fin, title)) break;
+        m.setTitle(title);
+
+        // Print movie info
+        m.print();
+        cout << endl;
+    }
+
+    fin.close();
 
     cout << endl;
     return 0;
